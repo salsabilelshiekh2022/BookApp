@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'constants.dart';
-import 'features/splash/presentation/views/widgets/splash_view.dart';
+import 'features/splash/presentation/views/splash_view.dart';
 
 void main() {
   runApp(const MyApp());
