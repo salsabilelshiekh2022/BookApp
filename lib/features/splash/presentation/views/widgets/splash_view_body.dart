@@ -1,7 +1,9 @@
+import 'package:book_app/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/assets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
+//import 'package:get/get.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -18,16 +20,16 @@ class _SplashViewBodyState extends State<SplashViewBody>
   @override
   void initState() {
     super.initState();
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 2),
-    );
+    initSlidingAnimation();
 
-    slidingAnimation =
-        Tween<Offset>(begin: const Offset(0, 6), end: Offset.zero)
-            .animate(animationController);
+    navigateToHome();
+  }
 
-    animationController.forward();
+  @override
+  void dispose() {
+    super.dispose();
+
+    animationController.dispose();
   }
 
   @override
@@ -36,7 +38,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        SvgPicture.asset(
+        Image.asset(
           AssetsData.logo,
           width: 300,
           height: 64,
@@ -58,5 +60,28 @@ class _SplashViewBodyState extends State<SplashViewBody>
             }),
       ],
     );
+  }
+
+  void initSlidingAnimation() {
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    );
+
+    slidingAnimation =
+        Tween<Offset>(begin: const Offset(0, 6), end: Offset.zero)
+            .animate(animationController);
+
+    animationController.forward();
+  }
+
+  void navigateToHome() {
+    Future.delayed(const Duration(seconds: 3), () {
+      // Get.to(() => const HomeView(),
+      //     transition: Transition.fade,
+      //     duration: const Duration(microseconds: 250));
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => const HomeView()));
+    });
   }
 }
