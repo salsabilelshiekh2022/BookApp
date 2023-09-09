@@ -1,4 +1,5 @@
 import 'package:book_app/core/utils/assets.dart';
+import 'package:book_app/core/utils/router/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -18,7 +19,9 @@ class HomeAppBar extends StatelessWidget {
             width: 80,
           ),
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, AppRoutes.searchPageRoute);
+              },
               icon: const Icon(
                 FontAwesomeIcons.magnifyingGlass,
                 size: 22,

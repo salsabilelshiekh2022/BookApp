@@ -6,14 +6,16 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/styles.dart';
 
 class BestSellerItem extends StatelessWidget {
-  const BestSellerItem({super.key});
+  const BestSellerItem({super.key, this.padding = 24});
+
+  final double padding;
 
   @override
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.topLeft,
       child: Padding(
-        padding: const EdgeInsets.only(left: 24),
+        padding: EdgeInsets.only(left: padding),
         child: GestureDetector(
           onTap: () {
             Navigator.pushNamed(context, AppRoutes.bookDetailsRoute);
