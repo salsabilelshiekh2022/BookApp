@@ -1,9 +1,7 @@
-import 'package:book_app/features/home/presentation/views/home_view.dart';
+import 'package:book_app/core/utils/router/routes.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/assets.dart';
-
-//import 'package:get/get.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -80,8 +78,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       // Get.to(() => const HomeView(),
       //     transition: Transition.fade,
       //     duration: const Duration(microseconds: 250));
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const HomeView()));
+      Navigator.pushNamed(context, AppRoutes.homePageRoute);
     });
   }
 }

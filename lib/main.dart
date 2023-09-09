@@ -1,8 +1,9 @@
+import 'package:book_app/core/utils/router/router.dart';
+import 'package:book_app/core/utils/router/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'constants.dart';
-import 'features/splash/presentation/views/splash_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: kPrimaryColor,
         textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
       ),
-      home: const SplashView(),
+      onGenerateRoute: onGenerate,
+      initialRoute: AppRoutes.splashPageRoute,
     );
   }
 }
