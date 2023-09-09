@@ -3,15 +3,23 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/assets.dart';
 
 class FeatureItem extends StatelessWidget {
-  const FeatureItem({super.key});
+  const FeatureItem(
+      {super.key,
+      required this.width,
+      required this.height,
+      required this.radius});
+
+  final double width;
+  final double height;
+  final double radius;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 150,
-      height: 124,
+      width: width,
+      height: height,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(radius),
           image: const DecorationImage(
             image: AssetImage(
               AssetsData.testImage,

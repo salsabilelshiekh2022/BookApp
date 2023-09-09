@@ -15,7 +15,11 @@ class FeatureList extends StatelessWidget {
           itemBuilder: (context, index) {
             return const Padding(
               padding: EdgeInsets.only(right: 12),
-              child: FeatureItem(),
+              child: FeatureItem(
+                width: 150,
+                height: 124,
+                radius: 16,
+              ),
             );
           },
           itemCount: 9,
